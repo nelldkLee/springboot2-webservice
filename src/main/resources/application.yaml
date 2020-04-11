@@ -1,0 +1,20 @@
+--- #구분
+spring:
+    mustache:
+        suffix: .html
+    jpa:
+        show-sql: true
+        properties:
+            strategy: org.hibernate.dialect.MySQL5InnoDBDialect
+--- #구분
+spring:
+    profiles: local
+
+    h2:
+        console:
+            enabled: true
+    mustache:
+        cache: false
+        prefix: file:///C:\Users\nelld\IdeaProjects\springboot2-webservice\src\main\resources\templates\
+    resources:
+        static-locations: file:///C:\Users\nelld\IdeaProjects\springboot2-webservice\src\main\resources\static\

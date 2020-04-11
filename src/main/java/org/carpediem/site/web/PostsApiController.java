@@ -19,13 +19,19 @@ public class PostsApiController {
     }
 
     @PostMapping("/api/v1/posts")
-    public Long save(@RequestBody PostsSaveRequestDto requestDto) {
+    public Long register(@RequestBody PostsSaveRequestDto requestDto) {
         return postsService.save(requestDto);
     }
 
-
     @PutMapping("/api/v1/posts/{id}")
-    public Long update(@PathVariable Long id, @RequestBody PostsUpdateRequestDto requestDto) {
-        return postsService.update(id, requestDto);
+    public Long modify(@PathVariable Long id, @RequestBody PostsUpdateRequestDto requestDto) {
+        return postsService.modify(id, requestDto);
     }
+
+    @DeleteMapping("/api/v1/posts/{id}")
+    public Long delete(@PathVariable Long id) {
+        postsService.delete(id);
+        return id;
+    }
+
 }
