@@ -1,15 +1,19 @@
 --- #구분
 spring:
+    profiles:
+        include: google
     mustache:
         suffix: .html
     jpa:
         show-sql: true
         properties:
             strategy: org.hibernate.dialect.MySQL5InnoDBDialect
+    session:
+        store-type: jdbc
 --- #구분
 spring:
-    profiles: local
-
+    profiles:
+        active: local
     h2:
         console:
             enabled: true

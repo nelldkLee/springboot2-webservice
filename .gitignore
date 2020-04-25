@@ -4,3 +4,4 @@
 .idea
 out
 build
+src/main/resources/application-google.yaml

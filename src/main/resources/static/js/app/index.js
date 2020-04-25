@@ -1,4 +1,5 @@
 $(function () {
+
     const $postsRegisterButton = $('#btn-register');
     const $postsRegisterArea = $('.posts-register');
 
@@ -77,10 +78,9 @@ class Index {
         }).done(function () {
             callback();
         }).fail(function (error) {
-            alert(JSON.parse(error));
+            alert(JSON.stringify(error));
         });
     }
-
 }
 
 
