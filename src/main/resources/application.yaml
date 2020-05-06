@@ -4,12 +4,21 @@ spring:
         include: google
     mustache:
         suffix: .html
+    h2:
+        console:
+            enabled: true
     jpa:
         show-sql: true
         properties:
             strategy: org.hibernate.dialect.MySQL5InnoDBDialect
     session:
         store-type: jdbc
+    logging:
+        level:
+            org.springframework: info
+        pattern:
+            console: "%d{yyyy-MM-dd HH:mm:ss} [%X{visitorIp}] [%thread] %-5level %logger{36} – %msg%n"
+
 --- #구분
 spring:
     profiles: local
