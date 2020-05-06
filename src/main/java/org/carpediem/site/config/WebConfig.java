@@ -1,6 +1,7 @@
-package org.carpediem.site.config.auth;
+package org.carpediem.site.config;
 
 import lombok.RequiredArgsConstructor;
+import org.carpediem.site.config.auth.LoginUserArgumentResolver;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;

@@ -1,6 +1,7 @@
 package org.carpediem.site.web.domain.posts;
 
 import org.carpediem.site.domain.posts.Posts;
+
 import org.carpediem.site.domain.posts.PostsRepository;
 import org.junit.After;
 import org.junit.Test;
