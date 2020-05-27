@@ -1,5 +1,7 @@
 --- #구분
 spring:
+    profiles:
+        include: google
     mustache:
         suffix: .html
     h2:
@@ -11,20 +13,23 @@ spring:
             strategy: org.hibernate.dialect.MySQL5InnoDBDialect
     session:
         store-type: jdbc
-logging:
-    level:
-        org.springframework: info
-    pattern:
-        console: "%d{yyyy-MM-dd HH:mm:ss} [%X{visitorIp}] [%thread] %-5level %logger{36} – %msg%n"
 
 --- #구분
 spring:
     profiles: real
+logging:
+    level:
+        org.springframework.web: info
+    pattern:
+        file: "%d{yyyy-MM-dd HH:mm:ss} [%X{visitorIp}] [%thread] %-5level %logger{*} – %msg%n"
+    file: /logs/application-debug.log
 
 --- #구분
 spring:
     profiles: local
-        include: google
+    output:
+        ansi:
+            enabled: detect
     h2:
         console:
             enabled: true
@@ -33,3 +38,17 @@ spring:
         prefix: file:///C:\Users\nelld\IdeaProjects\springboot2-webservice\src\main\resources\templates\
     resources:
         static-locations: file:///C:\Users\nelld\IdeaProjects\springboot2-webservice\src\main\resources\static\
+    http:
+        log-request-details: true
+logging:
+    level:
+        org.springframework.web: debug
+    pattern:
+        console: "%d{yyyy-MM-dd HH:mm:ss} [%X{visitorIp}] [%thread] %-5level %logger{*} – %msg%n"
+        file: "%d{yyyy-MM-dd HH:mm:ss} [%X{visitorIp}] [%thread] %-5level %logger{*} – %msg%n"
+    file:
+        max-history: 10
+        max-size: 10MB
+    path: ./test.log
+
+

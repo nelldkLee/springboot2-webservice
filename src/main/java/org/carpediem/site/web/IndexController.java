@@ -1,6 +1,7 @@
 package org.carpediem.site.web;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.carpediem.site.config.auth.LoginUser;
 import org.carpediem.site.config.auth.dto.SessionUser;
 import org.carpediem.site.service.PostsService;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import javax.servlet.http.HttpSession;
 
+@Slf4j
 @RequiredArgsConstructor
 @Controller
 public class IndexController {
@@ -20,7 +22,7 @@ public class IndexController {
 
     @GetMapping("/")
     public String index(Model model, @LoginUser SessionUser user) {
-        System.out.println("index page");
+        log.info("index page");
         model.addAttribute("posts", postsService.findAllDesc());
 
         if (user != null) {
@@ -32,7 +34,7 @@ public class IndexController {
 
     @GetMapping("/posts/register")
     public String postsRegister() {
-        System.out.println("posts register pages");
+        log.info("posts register pages");
         return "posts-register";
     }
 
